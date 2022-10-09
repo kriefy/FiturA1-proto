@@ -3,6 +3,7 @@ const mongoose = require("mongoose");
 const cors = require("cors");
 const morgan = require("morgan");
 const bodyParser = require("body-parser");
+
 const routes = require("./routes/api/routes");
 require("dotenv").config();
 
@@ -26,6 +27,6 @@ mongoose
     console.log("Connection failed", err);
   });
 
-app.use("/api/", routes);
+app.use("/", routes);
 
 app.listen(PORT, () => console.log(`Server running on port ${PORT}`));

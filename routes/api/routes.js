@@ -4,15 +4,15 @@ const controller = require("../../controller/controller");
 const router = Router();
 
 // GET
-router.get("/", controller.getTodos);
+router.get("/", controller.getMitra);
 
 // POST
-router.post("/", controller.createTodo);
+router.post("/", controller.createNewMitra);
 
 // DELETE
-router.delete("/:id", controller.deleteTodo);
+router.delete("/:id", controller.deleteMitra);
 
 // UPDATE
-router.patch("/:id", controller.updateTodo);
+router.patch("/:id", controller.updateMitra);
 
 module.exports = router;

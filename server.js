@@ -21,12 +21,12 @@ mongoose
     useUnifiedTopology: true,
   })
   .then(() => {
-    console.log("Connected to database");
+    console.log("Terkoneksi ke database");
   })
   .catch((err) => {
-    console.log("Connection failed", err);
+    console.log("Koneksi ke database gagal", err);
   });
 
 app.use("/", routes);
 
-app.listen(PORT, () => console.log(`Server running on port ${PORT}`));
+app.listen(PORT, () => console.log(`Server berjalan di port ${PORT}`));

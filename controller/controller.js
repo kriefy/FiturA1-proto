@@ -1,23 +1,34 @@
 const Mitra = require("../models/schemaMitra");
 
+// POST
+exports.addMitra = async (req, res) => {
+  const data = {
+    description: req.body.description,
+    nama_mitra: req.body.nama_mitra,
+    date: req.body.date,
+    logo_mitra: req.file ? req.file.path : undefined,
+    alamat_mitra: req.body.alamat_mitra,
+    berkas_mitra: req.file ? req.file.path : undefined,
+    nama_usaha: req.body.nama_usaha,
+    status_mitra: req.body.status_mitra,
+  };
+
+  const newMitra = new Mitra(data);
+  try {
+    const mitra = await newMitra.save();
+    if (!mitra) throw new Error("Pendaftaran mitra gagal");
+    res.status(200).json(mitra);
+  } catch (error) {
+    res.status(500).json({ message: error.message });
+  }
+};
+
 // GET
 exports.getMitra = async (req, res) => {
   try {
     const dataMitra = await Mitra.find();
     if (!dataMitra) throw new Error("Mitra tidak ditemukan");
     res.status(200).json(dataMitra);
-  } catch (error) {
-    res.status(500).json({ message: error.message });
-  }
-};
-
-// POST
-exports.createNewMitra = async (req, res) => {
-  const newMitra = new Mitra(req.body);
-  try {
-    const mitra = await newMitra.save();
-    if (!mitra) throw new Error("Pendaftaran mitra gagal");
-    res.status(200).json(mitra);
   } catch (error) {
     res.status(500).json({ message: error.message });
   }

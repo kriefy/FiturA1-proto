@@ -1,0 +1,25 @@
+GET http://localhost:5000
+
+POST http://localhost:5000
+Content-Type: application/json
+Accept: application/json
+
+{
+    "description": "Kelontong",
+    "nama_mitra": "mitra",
+    "alamat_mitra": "alamat",
+    "logo_mitra": "gambar.jpg",
+    "berkas_mitra": "berkas",
+    "nama_usaha": "usaha"
+}
+
+PUT http://localhost:5000/632b225eb3baf862b8cf83b0
+Content-Type: application/json
+Accept: application/json
+
+{
+  "description" : "Diedit"
+}
+
+DELETE http://localhost:5000/632b225eb3baf862b8cf83b0
+

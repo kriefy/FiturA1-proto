@@ -7,7 +7,7 @@ const router = Router();
 router.get("/", controller.getMitra);
 
 // POST
-router.post("/", controller.createNewMitra);
+router.post("/", controller.addMitra);
 
 // DELETE
 router.delete("/:id", controller.deleteMitra);

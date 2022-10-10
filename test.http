@@ -8,7 +8,7 @@ Accept: application/json
     "description": "Kelontong",
     "nama_mitra": "mitra",
     "alamat_mitra": "alamat",
-    "logo_mitra": "gambar.jpg",
+    "logo_mitra": "\\uploads\\gambar.jpg",
     "berkas_mitra": "berkas",
     "nama_usaha": "usaha"
 }

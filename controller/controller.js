@@ -3,14 +3,16 @@ const Restoran = require("../models/schemaRestoran");
 // POST
 exports.addRestoran = async (req, res) => {
   const data = {
-    description: req.body.description,
-    nama_restoran: req.body.nama_restoran,
-    date: req.body.date,
     logo_restoran: req.file ? req.file.path : undefined,
     alamat_restoran: req.body.alamat_restoran,
+    rating_restoran: req.body.rating_restoran,
+    // nama_restoran: req.body.nama_restoran,
+    kategori_restoran: req.body.kategori_restoran,
     berkas_restoran: req.file ? req.file.path : undefined,
-    nama_usaha: req.body.nama_usaha,
+    fasilitas_restoran: req.body.fasilitas_restoran,
     status_restoran: req.body.status_restoran,
+    jam_buka_restoran: req.body.jam_buka_restoran,
+    jam_tutup_restoran: req.body.jam_tutup_restoran
   };
 
   const newRestoran = new Restoran(data);

@@ -15,15 +15,15 @@ const fileStorage = multer.diskStorage({
 const uploads = multer({ storage: fileStorage });
 
 // GET
-router.get("/", controller.getMitra);
+router.get("/", controller.getRestoran);
 
 // POST
-router.post("/", uploads.single("logo_mitra"), controller.addMitra);
+router.post("/", uploads.single("logo_restoran"), controller.addRestoran);
 
 // DELETE
-router.delete("/:id", controller.deleteMitra);
+router.delete("/:id", controller.deleteRestoran);
 
 // UPDATE
-router.patch("/:id", controller.updateMitra);
+router.patch("/:id", controller.updateRestoran);
 
 module.exports = router;

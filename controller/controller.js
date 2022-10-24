@@ -1,45 +1,45 @@
-const Mitra = require("../models/schemaMitra");
+const Restoran = require("../models/schemaRestoran");
 
 // POST
-exports.addMitra = async (req, res) => {
+exports.addRestoran = async (req, res) => {
   const data = {
     description: req.body.description,
-    nama_mitra: req.body.nama_mitra,
+    nama_restoran: req.body.nama_restoran,
     date: req.body.date,
-    logo_mitra: req.file ? req.file.path : undefined,
-    alamat_mitra: req.body.alamat_mitra,
-    berkas_mitra: req.file ? req.file.path : undefined,
+    logo_restoran: req.file ? req.file.path : undefined,
+    alamat_restoran: req.body.alamat_restoran,
+    berkas_restoran: req.file ? req.file.path : undefined,
     nama_usaha: req.body.nama_usaha,
-    status_mitra: req.body.status_mitra,
+    status_restoran: req.body.status_restoran,
   };
 
-  const newMitra = new Mitra(data);
+  const newRestoran = new Restoran(data);
   try {
-    const mitra = await newMitra.save();
-    if (!mitra) throw new Error("Pendaftaran mitra gagal");
-    res.status(200).json(mitra);
+    const restoran = await newRestoran.save();
+    if (!restoran) throw new Error("Pendaftaran restoran gagal");
+    res.status(200).json(restoran);
   } catch (error) {
     res.status(500).json({ message: error.message });
   }
 };
 
 // GET
-exports.getMitra = async (req, res) => {
+exports.getRestoran = async (req, res) => {
   try {
-    const dataMitra = await Mitra.find();
-    if (!dataMitra) throw new Error("Mitra tidak ditemukan");
-    res.status(200).json(dataMitra);
+    const dataRestoran = await Restoran.find();
+    if (!dataRestoran) throw new Error("Restoran tidak ditemukan");
+    res.status(200).json(dataRestoran);
   } catch (error) {
     res.status(500).json({ message: error.message });
   }
 };
 
 // DELETE
-exports.deleteMitra = async (req, res) => {
+exports.deleteRestoran = async (req, res) => {
   const { id } = req.params;
   try {
-    const removed = await Mitra.findByIdAndDelete(id);
-    if (!removed) throw Error("Gagal menghapus mitra");
+    const removed = await Restoran.findByIdAndDelete(id);
+    if (!removed) throw Error("Gagal menghapus restoran");
     res.status(200).json(removed);
   } catch (error) {
     res.status(500).json({ message: error.message });
@@ -47,11 +47,11 @@ exports.deleteMitra = async (req, res) => {
 };
 
 // UPDATE
-exports.updateMitra = async (req, res) => {
+exports.updateRestoran = async (req, res) => {
   const { id } = req.params;
   try {
-    const response = await Mitra.findByIdAndUpdate(id, req.body);
-    if (!response) throw Error("Gagal mengupdate mitra");
+    const response = await Restoran.findByIdAndUpdate(id, req.body);
+    if (!response) throw Error("Gagal mengupdate restoran");
     const updated = { ...response._doc, ...req.body };
     res.status(200).json(updated);
   } catch (error) {
